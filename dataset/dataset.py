@@ -1,7 +1,7 @@
 import pandas as pd
 import numpy as np
 
-df = pd.read_csv('./Covid_Dataset.csv')
+df = pd.read_csv('dataset/Covid_Dataset.csv')
 df[df == 'Yes'] = 1.
 df[df == 'No'] = 0.
 

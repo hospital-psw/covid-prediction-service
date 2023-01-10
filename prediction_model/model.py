@@ -5,8 +5,8 @@ import pickle
 from typing import List
 from time import time
 
-import layers as l
-import activations as act
+import prediction_model.layers as l
+import prediction_model.activations as act
 
 
 class Model:

@@ -1,6 +1,6 @@
 import numpy as np
-import activations as act
-import optimizers as opti
+import prediction_model.activations as act
+import prediction_model.optimizers as opti
 
 class Layer:
     def __init__(self, input_size: int, output_size: int, activation: act.Activation, optimizer: opti.Optimizer):
