@@ -3,7 +3,7 @@ import activations as act
 import optimizers as opti
 from layers import Layer
 from model import Model, _serialize_model, _deserialize_model
-from dataset import X, y
+from dataset.dataset import X, y
 
 
 def train_and_save_model():
@@ -24,9 +24,9 @@ def train_and_save_model():
 
     model.train()
 
-    _serialize_model(model, "./model.pickle")
+    _serialize_model(model, "../trained_model/model.pickle")
 
 
 def predict(datapoint: np.ndarray) -> bool:
-    loaded_model = _deserialize_model("./model.pickle") 
+    loaded_model = _deserialize_model("../trained_model/model.pickle")
     return loaded_model.predict(datapoint) == 1

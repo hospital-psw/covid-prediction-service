@@ -299,4 +299,4 @@ poetry.toml
 
 ### User Added ###
 # Ignore pickle files
-*.pickle
+trained_model/

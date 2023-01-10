@@ -1,9 +1,9 @@
 import numpy as np
-import activations as act
-import optimizers as opti
-from layers import Layer
-from model import Model, _serialize_model, _deserialize_model
-from dataset import X, y
+import prediction_model.activations as act
+import prediction_model.optimizers as opti
+from prediction_model.layers import Layer
+from prediction_model.model import Model, _serialize_model, _deserialize_model
+from dataset.dataset import X, y
 
 idxs = np.arange(X.shape[0])
 np.random.shuffle(idxs)

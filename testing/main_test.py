@@ -1,9 +1,9 @@
 import numpy as np
 import pandas as pd
-import activations as act
-import optimizers as opti
-from model import Model
-from layers import Layer
+import prediction_model.activations as act
+import prediction_model.optimizers as opti
+from prediction_model.model import Model
+from prediction_model.layers import Layer
 
 
 df = pd.read_csv("dataset.csv")

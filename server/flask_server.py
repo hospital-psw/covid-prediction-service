@@ -2,7 +2,7 @@ from flask import Flask
 from flask import Response
 import numpy as np
 
-from model_manipulation import train_and_save_model, predict
+from prediction_model.model_manipulation import train_and_save_model, predict
 
 app = Flask(__name__)
 
