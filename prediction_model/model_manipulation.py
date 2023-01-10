@@ -1,4 +1,6 @@
 import numpy as np
+import os
+
 import prediction_model.activations as act
 import prediction_model.optimizers as opti
 from prediction_model.layers import Layer
@@ -24,6 +26,8 @@ def train_and_save_model():
 
     model.train()
 
+    if not os.path.exists("trained_model"):
+        os.mkdir("trained_model")
     _serialize_model(model, "trained_model/model.pickle")
 
 
