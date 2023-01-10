@@ -29,4 +29,4 @@ def train_and_save_model():
 
 def predict(datapoint: np.ndarray) -> bool:
     loaded_model = _deserialize_model("trained_model/model.pickle")
-    return loaded_model.predict(datapoint) == 1
+    return loaded_model.predict(datapoint)

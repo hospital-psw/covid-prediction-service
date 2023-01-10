@@ -2,7 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import tqdm
 import pickle
-from typing import List
+from typing import List, Tuple
 from time import time
 
 import prediction_model.layers as l
@@ -110,15 +110,15 @@ class Model:
         self.Train_time = time() - start
 
   
-    def predict(self, datapoint: np.ndarray) -> int:
+    def predict(self, datapoint: np.ndarray) -> Tuple[int, float]:
         assert datapoint.shape[0] == 1, "Input must be of shape (1, n)"
         assert self.Layers_built, "Network not trained yet, run obj.train() first"
 
         self.__forward_all(datapoint)
         res = 1 if self.Layers[-1].Activated >= 0.5 else 0
-        print(f"Class for datapoint\n{datapoint}\nis {res}")
+        confidence = round(1 - self.Layers[-1].Activated[0, 0], 2) * 100 if res == 0 else round(self.Layers[-1].Activated[0, 0], 2) * 100
 
-        return res
+        return res, confidence
 
 
     def score(self, test_inputs: np.ndarray, test_labels: np.ndarray) -> None:

@@ -1,9 +1,11 @@
 from flask import Flask
 from flask import Response
 from flask import request
-import numpy as np
 
-from prediction_model.model_manipulation import train_and_save_model, predict
+from data_model.symptoms import Symptoms
+from prediction_model.model_manipulation import train_and_save_model
+from prediction_model.model_manipulation import predict as model_predict
+
 
 app = Flask(__name__)
 
@@ -20,7 +22,12 @@ def train_model():
 
 @app.post('/model/predict')
 def predict() -> str:
-    print(request.get_json(force=True))
+    json_dict = request.get_json(force=True)
+    symptoms = Symptoms.load_from_json_dict(json_dict)
+    vector = symptoms.to_numpy()
+    prediction, confidence = model_predict(vector)
+    print(prediction, confidence)
+
     return Response(status=200)
 
 
