@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/03b26fed-dab9-480b-ad10-916573486fdd/resourceGroups/appsvc_linux_centralus/providers/Microsoft.Web/sites/careconnect-covid-prediction",
+    "appService.deploySubpath": ""
+}
